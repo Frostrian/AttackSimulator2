@@ -31,6 +31,7 @@ namespace AttackSimulator
             cmbAttackType = new ComboBox { Location = new System.Drawing.Point(20, 60), Width = 200 };
             cmbAttackType.Items.Add("Flood");
             cmbAttackType.Items.Add("Spoof");
+            cmbAttackType.Items.Add("Data Tampering");
             cmbAttackType.SelectedIndex = 0;
             numRate = new NumericUpDown { Location = new System.Drawing.Point(20, 100), Minimum = 1, Maximum = 100, Value = 10, Width = 200 };
             btnStartAttack = new Button { Text = "Saldýrýyý Baþlat", Location = new System.Drawing.Point(20, 140), Width = 200 };
@@ -124,6 +125,7 @@ namespace AttackSimulator
             {
                 "Flood" => new FloodAttack(deviceId, rate, Log),
                 "Spoof" => new DeviceIdSpoofAttack(deviceId, rate, Log),
+                "Data Tampering" => new DataTamperingAttack(deviceId, Log),
                 _ => null
             };
 
